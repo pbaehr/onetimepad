@@ -33,15 +33,17 @@ class App:
                                         text='Save plaintext...')
         self.divider = ttk.Separator(master)
 
-        self.encode_label.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
-        self.divider.grid(row=0, column=2, rowspan=3, sticky='ns')
-        self.decode_label.grid(row=0, column=3, columnspan=2, padx=5, pady=5)
-        self.load_plaintext.grid(row=1, column=0, columnspan=2, padx=5, pady=5)
-        self.load_ciphertext.grid(row=1, column=3, padx=5, pady=5)
-        self.load_key.grid(row=1, column=4, padx=5, pady=5)
-        self.save_ciphertext.grid(row=2, column=0, padx=5, pady=5)
-        self.save_key.grid(row=2, column=1, padx=5, pady=5)
-        self.save_plaintext.grid(row=2, column=3, columnspan=2, padx=5, pady=5)
+        padding = {'padx': 5, 'pady': 5}
+
+        self.encode_label.grid(row=0, column=0, columnspan=2, **padding)
+        self.divider.grid(row=0, column=2, rowspan=3, sticky='ns', **padding)
+        self.decode_label.grid(row=0, column=3, columnspan=2, **padding)
+        self.load_plaintext.grid(row=1, column=0, columnspan=2, **padding)
+        self.load_ciphertext.grid(row=1, column=3, **padding)
+        self.load_key.grid(row=1, column=4, **padding)
+        self.save_ciphertext.grid(row=2, column=0, **padding)
+        self.save_key.grid(row=2, column=1, **padding)
+        self.save_plaintext.grid(row=2, column=3, columnspan=2, **padding)
 
     def do_load_plaintext(self):
         plaintext_file = tkFileDialog.askopenfile(mode='rb')
